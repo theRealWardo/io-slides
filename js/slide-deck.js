@@ -103,7 +103,7 @@ SlideDeck.prototype.onDomLoaded_ = function(e) {
   // Note: this needs to come after addEventListeners_(), which adds a
   // 'keydown' listener that this controller relies on.
   // Also, no need to set this up if we're on mobile.
-  if (!Modernizr.touch) {
+  if (!Modernizr.touch || true) {
     this.controller = new SlideController(this);
     if (this.controller.isPopup) {
       document.body.classList.add('popup');

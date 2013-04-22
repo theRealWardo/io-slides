@@ -26,11 +26,13 @@ URL: https://code.google.com/p/io-2012-slides
 
 <slides class="layout-widescreen">
 
+
   <slide class="logoslide nobackground">
     <article class="flexbox vcenter">
       <span><img src="images/google_developers_logo.png"></span>
     </article>
   </slide>
+
 
   <slide class="title-slide segue nobackground">
     <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
@@ -41,6 +43,8 @@ URL: https://code.google.com/p/io-2012-slides
       <p data-config-presenter><!-- populated from slide_config.json --></p>
     </hgroup>
   </slide>
+
+
   <slide class="fill nobackground" style="background-image: url(images/tubes0.jpg)">
     <footer class="img-source">http://www.google.com/about/datacenters/gallery/</footer>
 
@@ -53,6 +57,7 @@ URL: https://code.google.com/p/io-2012-slides
       </section>
     </aside>
   </slide>
+
 
   <slide class="fill nobackground" style="background-image: url(images/machines.jpg)">
     <footer class="img-source">http://www.google.com/about/datacenters/gallery/</footer>
@@ -67,6 +72,7 @@ URL: https://code.google.com/p/io-2012-slides
     </aside>
   </slide>
 
+
   <slide class="fill nobackground" style="background-image: url(images/tubes1.jpg)">
     <footer class="img-source">http://www.google.com/about/datacenters/gallery/</footer>
 
@@ -80,6 +86,7 @@ URL: https://code.google.com/p/io-2012-slides
     </aside>
   </slide>
 
+
   <slide class="fill nobackground the-real-internet" style="background-image: url(images/the-real-internet.jpg)">
     <footer class="top-img-source">http://www.collegehumor.com/theinternet</footer>
 
@@ -92,6 +99,7 @@ URL: https://code.google.com/p/io-2012-slides
       </section>
     </aside>
   </slide>
+
 
   <slide>
     <article>
@@ -109,6 +117,7 @@ URL: https://code.google.com/p/io-2012-slides
     </aside>
   </slide>
 
+
   <slide class="ytspinner-slide">
     <article>
       <div></div>
@@ -122,6 +131,167 @@ URL: https://code.google.com/p/io-2012-slides
       </section>
     </aside>
   </slide>
+
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Timeline</h2>
+    </hgroup>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>September 24, 2009</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Adobe showed us a project called Zeri</li>
+        <li>Uses HTTP for transport</li>
+        <li>Could be used for Live and VOD</li>
+        <li>Supports all the Flash Codecs</li>
+        <li>Requires FLV containers</li>
+        <li>Flash 10.1+</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Sometime in early 2010</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>YouTube had a working prototype</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>July 11, 2011</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Aaron Colwell shows of v0.1 of Media Source</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>April 24, 2012</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>YouTube starts using Zeri for all capable playbacks</li>
+      </ul>
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>2 years and 7 months later</li>
+          <li>worked through more bugs than I can count</li>
+          <li>still a few really hard bugs open on the project, a lot of them are "feature requests"</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>September of 2012</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>YouTube starts to ship an Adaptive Streaming algorithm in Flash</li>
+        <li>Finished in February of 2013</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>October 24, 2012</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>YouTube has its first Media Source playbacks</li>
+      </ul>
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>not talking about some internal "show it to your boss" gag</li>
+          <li>we're talking about real YouTube videos playing for real people.</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>April 9, 2013</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>W3C HTML Working Group publishes the<br/>
+        Media Source Extensions working draft</li>
+        <li><a href="http://www.w3.org/TR/media-source/">http://www.w3.org/TR/media-source/</a></li>
+      </ul>
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>We'll go into the details of this API later</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Chunked Video Playback with Flash</h2>
+      <h3>The best thing since Sliced Bread</h3>
+    </hgroup>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>How to Launch Adaptive Streaming at Scale</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="code">
+write_awesome_code();
+knob_value = 0;
+while (knob_value < 100) {
+  identify_and_fix_problems();
+  turn_knob(1);
+  notice_new_problem();
+  if (really_hurts) {
+    turn_knob(-1);
+  }
+  drink();
+  sleep();
+}
+party();
+      </pre>
+    </article>
+  </slide>
+
 
   <slide>
     <hgroup>
@@ -140,6 +310,7 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
+
 
   <slide>
     <hgroup>
@@ -165,6 +336,8 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
+
+
   <slide>
     <hgroup>
       <h2>Slide with (Smaller Font)</h2>
@@ -176,6 +349,8 @@ URL: https://code.google.com/p/io-2012-slides
       </ul>
     </article>
   </slide>
+
+
 
   <slide hidden>
     Hidden slides are left out of the presentation.

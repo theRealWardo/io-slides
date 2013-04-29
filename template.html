@@ -45,14 +45,13 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
-  <slide class="fill nobackground" style="background-image: url(images/tubes0.jpg)">
-    <footer class="img-source">http://www.google.com/about/datacenters/gallery/</footer>
+  <slide class="fill nobackground the-real-internet" style="background-image: url(images/the-real-internet.jpg)">
+    <footer class="top-img-source">http://www.collegehumor.com/theinternet</footer>
 
     <aside class="note">
       <section>
         <ul>
-          <li>Today we are going to talk about our corner of the internet.</li>
-          <li>"A series of tubes." as Ted Stevens. AK Senator once called it</li>
+          <li></li>
         </ul>
       </section>
     </aside>
@@ -75,20 +74,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide class="fill nobackground" style="background-image: url(images/tubes1.jpg)">
     <footer class="img-source">http://www.google.com/about/datacenters/gallery/</footer>
-
-    <aside class="note">
-      <section>
-        <ul>
-          <li>Here's what we are really talking about, the data we send over
-          these cables.</li>
-        </ul>
-      </section>
-    </aside>
-  </slide>
-
-
-  <slide class="fill nobackground the-real-internet" style="background-image: url(images/the-real-internet.jpg)">
-    <footer class="top-img-source">http://www.collegehumor.com/theinternet</footer>
 
     <aside class="note">
       <section>
@@ -130,14 +115,6 @@ URL: https://code.google.com/p/io-2012-slides
         </ul>
       </section>
     </aside>
-  </slide>
-
-
-  <slide class="segue dark nobackground">
-    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
-    <hgroup class="auto-fadein">
-      <h2>Timeline</h2>
-    </hgroup>
   </slide>
 
 
@@ -263,9 +240,226 @@ URL: https://code.google.com/p/io-2012-slides
   <slide class="segue dark nobackground">
     <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
     <hgroup class="auto-fadein">
-      <h2>Chunked Video Playback with Flash</h2>
+      <h2>Chunked Video Playback</h2>
       <h3>The best thing since Sliced Bread</h3>
     </hgroup>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>The Past</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="ActionScript">
+      // Simple HTTP video streaming
+      netStream.play(url)
+      </pre>
+
+      <img src="images/sb-talk-1.jpg" alt="sb" title="sb"
+      style="position:absolute; top: 270px; z-index:-1">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>In the beginning Flash supported video playback and it was good.
+          Video websites sprung up and multiplied. Whole loaves of Internet video were
+          delivered to each and every home.</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>The New World</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="ActionScript">
+      // Simple chunked video streaming
+      source = new HttpByteSource(url)
+      netStream.appendBytes(source.read())
+      </pre>
+
+      <img src="images/sb-talk-2.jpg" alt="sb" title="sb"
+      style="position:absolute; top: 270px; z-index:-1">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>The Zeri project gave us a new API and we set out on our quest to
+          build the most complicated video player ever</li>
+          <li>The new "appendBytes" API put us between the Internet and the plugin where
+          we could deliver thick texas-toast sized slices of video to the plugin
+          and build elaborate video sandwiches. This will be the meat of our
+          talk.</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>But Why?</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Efficiency</li>
+        <li>Dumber Servers, Smarter Clients</li>
+        <li>Support New Video Containers</li>
+        <li>Adaptive Bitrate Streaming</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Efficiency</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Chunked Byte Source</li>
+        <li>Reduced Oversend by 5%</li>
+      </ul>
+      <!-- TODO(mattward): insert pretty picture -->
+    </article>
+  </slide>
+
+
+  <slide class="fill nobackground"
+  style="background-image:url(images/requests.gif)">
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>This is what that did to requests</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Caching - How does it work?</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>browser cache</li>
+        <li>in-memory</li>
+        <li>decoder</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Dumber Servers, Smarter Clients</h2>
+    </hgroup>
+    <article>
+      <p>No longer a part of our servers<p>
+      <ul>
+        <li>Server side throttling</li>
+        <li>"Pseudo-Streaming" via "start="</li>
+      </ul>
+      <br/><br/>
+      <p>Now in our clients<p>
+      <ul>
+        <li>Managed read-ahead</li>
+        <li>Client side seek indexing</li>
+      </ul>
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>turns out servers aren't the best at knowning what exactly got to
+          the client, they tended to back off early and that caused rebuffers<li>
+          <li>describe pseudo streaming - eat just the middle of the loaf<li>
+          <li>servers had to handle both MP4 and FLV with start<li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Support New Video Containers</h2>
+    </hgroup>
+    <article>
+      <p>What does a video really look like?</p>
+      <img src="images/taco.gif" alt="taco" style="position:relative;left:150px">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Video files are like tacos<li>
+          <li>You can have a corn or wheat shell. soft or hard.<li>
+          <li>At the end of the day, you probably eat tacos for whats inside.<li>
+          <li>Video and Audio are like the meat and topping inside that taco<li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Support New Video Containers</h2>
+    </hgroup>
+    <article>
+      <p>How do we handle knowing the byte offset A for a time T?</p>
+      <ul class="build">
+        <li>FLV time to byte</li>
+        <li>MP4 moov atom</li>
+        <li>FMP4/DASH sidx atom</li>
+        <li>HLS manifests</li>
+        <br/><br/>
+        <li>Build a common interface: (time, byte offset)</li>
+        <li>Data: {time, codec, payload}</li>
+      </ul>
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>These things are the slices of bread we are talking about.<li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide class="fill nobackground"
+  style="background-image:url(images/rebuffers.gif)">
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Rebuffers</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>stream switching slide</h2>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li></li>
+      </ul>
+    </article>
   </slide>
 
 
@@ -277,7 +471,7 @@ URL: https://code.google.com/p/io-2012-slides
       <pre class="prettyprint" data-lang="code">
 write_awesome_code();
 knob_value = 0;
-while (knob_value < 100) {
+while (knob_value &lt; 100) {
   identify_and_fix_problems();
   turn_knob(1);
   notice_new_problem();

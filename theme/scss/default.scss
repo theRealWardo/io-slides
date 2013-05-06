@@ -1127,3 +1127,27 @@ slide.the-real-internet {
   background: no-repeat 100% 100%;
   background-position: center;
 }
+
+img.cache {
+  position: relative;
+  top: 140px;
+  left: 250px;
+}
+
+.leftList {
+  float: left;
+}
+
+.rightList {
+  float: right;
+}
+
+img.seekbar {
+  position: absolute;
+  top: 350px;
+  left: 150px;
+}
+
+slides > slide.noTransition {
+  @include transition(none);
+}

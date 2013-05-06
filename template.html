@@ -120,117 +120,27 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
-      <h2>September 24, 2009</h2>
+      <h2>Timeline</h2>
     </hgroup>
     <article>
       <ul class="build">
-        <li>Adobe showed us a project called Zeri</li>
-        <li>Uses HTTP for transport</li>
-        <li>Could be used for Live and VOD</li>
-        <li>Supports all the Flash Codecs</li>
-        <li>Requires FLV containers</li>
-        <li>Flash 10.1+</li>
-      </ul>
-    </article>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h2>Sometime in early 2010</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>YouTube had a working prototype</li>
-      </ul>
-    </article>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h2>July 11, 2011</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>Aaron Colwell shows of v0.1 of Media Source</li>
-      </ul>
-    </article>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h2>April 24, 2012</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>YouTube starts using Zeri for all capable playbacks</li>
+        <li><span class="date">September 24, 2009</span> - Adobe showed us a project called Zeri</li>
+        <li><span class="date">Sometime in early 2010</span> - Working Zeri prototype</li>
+        <li><span class="date">July 11, 2011</span> - Aaron Colwell shows of v0.1 of Media Source</li>
+        <li><span class="date">April 24, 2012</span> - Using Zeri for all capable playbacks</li>
+        <li><span class="date">September of 2012</span> - Start shipping an Adaptive Streaming in Flash</li>
+        <li><span class="date">February of 2013</span> - 100% of playbacks are Adaptive</li>
+        <li><span class="date">October 24, 2012</span> - First Media Source playbacks</li>
+        <li><span class="date">April 9, 2013</span> - Media Source Extensions working draft</li>
       </ul>
     </article>
 
     <aside class="note">
       <section>
         <ul>
-          <li>2 years and 7 months later</li>
-          <li>worked through more bugs than I can count</li>
-          <li>still a few really hard bugs open on the project, a lot of them are "feature requests"</li>
-        </ul>
-      </section>
-    </aside>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h2>September of 2012</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>YouTube starts to ship an Adaptive Streaming algorithm in Flash</li>
-        <li>Finished in February of 2013</li>
-      </ul>
-    </article>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h2>October 24, 2012</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>YouTube has its first Media Source playbacks</li>
-      </ul>
-    </article>
-
-    <aside class="note">
-      <section>
-        <ul>
-          <li>not talking about some internal "show it to your boss" gag</li>
-          <li>we're talking about real YouTube videos playing for real people.</li>
-        </ul>
-      </section>
-    </aside>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h2>April 9, 2013</h2>
-    </hgroup>
-    <article>
-      <ul>
-        <li>W3C HTML Working Group publishes the<br/>
-        Media Source Extensions working draft</li>
-        <li><a href="http://www.w3.org/TR/media-source/">http://www.w3.org/TR/media-source/</a></li>
-      </ul>
-    </article>
-
-    <aside class="note">
-      <section>
-        <ul>
-          <li>We'll go into the details of this API later</li>
+          <li>2009 - Zeri - Flash 10.1+ and uses HTTP for transport</li>
+          <li>april 24 2012 - 2 years and 7 months later - worked through more bugs than I can count</li>
+          <li>October - This is real playbacks, not internal / show it to your boss playbacks</li>
         </ul>
       </section>
     </aside>
@@ -278,7 +188,7 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="ActionScript">
-      // Simple chunked video streaming
+      // Simple video streaming
       source = new HttpByteSource(url)
       netStream.appendBytes(source.read())
       </pre>
@@ -322,12 +232,32 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Efficiency</h2>
     </hgroup>
     <article>
-      <ul class="build">
-        <li>Chunked Byte Source</li>
+      <ul>
         <li>Reduced Oversend by 5%</li>
       </ul>
-      <!-- TODO(mattward): insert pretty picture -->
+
+      <pre class="prettyprint" data-lang="ActionScript" style="margin-top: 70px">
+      // Simple chunked video streaming
+      source = new ChunkByteSource(url?range=A-B)
+      netStream.appendBytes(source.read())
+      </pre>
+
+      <img src="images/sb-talk-3.gif" alt="sb" title="sb"
+      style="position:absolute; top: 420px; left:180px; z-index:-1">
     </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>The Zeri project gave us a new API and we set out on our quest to
+          build the most complicated video player ever</li>
+          <li>The new "appendBytes" API put us between the Internet and the plugin where
+          we could deliver thick texas-toast sized slices of video to the plugin
+          and build elaborate video sandwiches. This will be the meat of our
+          talk.</li>
+        </ul>
+      </section>
+    </aside>
   </slide>
 
 
@@ -349,11 +279,45 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Caching - How does it work?</h2>
     </hgroup>
     <article>
-      <ul class="build">
-        <li>browser cache</li>
-        <li>in-memory</li>
-        <li>decoder</li>
+      <ul>
+        <li class="black">Browser Cache - Disk</li>
+        <li>In-Memory</li>
+        <li>Decoder</li>
       </ul>
+
+      <img class="cache" src="/images/buffer-chunk.gif">
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Caching - How does it work?</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Browser Cache</li>
+        <li class="black">In-Memory - Buffer Bar</li>
+        <li>Decoder</li>
+      </ul>
+
+      <img class="cache" src="/images/buffer-cache.gif">
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Caching - How does it work?</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Browser Cache</li>
+        <li>In-Memory</li>
+        <li class="black">Decoder - Decoded Frames</li>
+      </ul>
+
+      <img class="cache" src="/images/buffer-netstream.gif">
     </article>
   </slide>
 
@@ -363,17 +327,91 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Dumber Servers, Smarter Clients</h2>
     </hgroup>
     <article>
-      <p>No longer a part of our servers<p>
-      <ul>
-        <li>Server side throttling</li>
-        <li>"Pseudo-Streaming" via "start="</li>
-      </ul>
-      <br/><br/>
-      <p>Now in our clients<p>
-      <ul>
-        <li>Managed read-ahead</li>
-        <li>Client side seek indexing</li>
-      </ul>
+      <div class="leftList">
+        <p>No longer a part of our servers<p>
+        <ul>
+          <li>Server side throttling</li>
+          <li>"Pseudo-Streaming" via "start="</li>
+        </ul>
+      </div>
+      <div class="rightList">
+        <p>Now in our clients<p>
+        <ul>
+          <li>Managed read-ahead</li>
+          <li>Client side seek indexing</li>
+        </ul>
+      </div>
+      <img class="seekbar" src="/images/seekbar-buffer.jpg">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>turns out servers aren't the best at knowning what exactly got to
+          the client, they tended to back off early and that caused rebuffers<li>
+          <li>describe pseudo streaming - eat just the middle of the loaf<li>
+          <li>servers had to handle both MP4 and FLV with start<li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Dumber Servers, Smarter Clients</h2>
+    </hgroup>
+    <article>
+      <div class="leftList">
+        <p>No longer a part of our servers<p>
+        <ul>
+          <li>Server side throttling</li>
+          <li>"Pseudo-Streaming" via "start="</li>
+        </ul>
+      </div>
+      <div class="rightList">
+        <p>Now in our clients<p>
+        <ul>
+          <li>Managed read-ahead</li>
+          <li>Client side seek indexing</li>
+        </ul>
+      </div>
+      <img class="seekbar" src="/images/seekbar-inbuffer.jpg">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>turns out servers aren't the best at knowning what exactly got to
+          the client, they tended to back off early and that caused rebuffers<li>
+          <li>describe pseudo streaming - eat just the middle of the loaf<li>
+          <li>servers had to handle both MP4 and FLV with start<li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Dumber Servers, Smarter Clients</h2>
+    </hgroup>
+    <article>
+      <div class="leftList">
+        <p>No longer a part of our servers<p>
+        <ul>
+          <li>Server side throttling</li>
+          <li>"Pseudo-Streaming" via "start="</li>
+        </ul>
+      </div>
+      <div class="rightList">
+        <p>Now in our clients<p>
+        <ul>
+          <li>Managed read-ahead</li>
+          <li>Client side seek indexing</li>
+        </ul>
+      </div>
+      <img class="seekbar" src="/images/seekbar-unbuffered.jpg">
     </article>
 
     <aside class="note">
@@ -394,8 +432,45 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Support New Video Containers</h2>
     </hgroup>
     <article>
-      <p>What does a video really look like?</p>
       <img src="images/taco.gif" alt="taco" style="position:relative;left:150px">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Video files are like tacos<li>
+          <li>You can have a corn or wheat shell. soft or hard.<li>
+          <li>At the end of the day, you probably eat tacos for whats inside.<li>
+          <li>Video and Audio are like the meat and topping inside that taco<li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Support New Video Containers</h2>
+    </hgroup>
+    <article>
+      <div class="leftList">
+        <ul>
+          <li>H.264</li>
+          <li>VP8</li>
+          <li>AAC</li>
+          <li>Vorbus</li>
+        </ul>
+        <img src="/images/taco-meat.jpg" width="400">
+      </div>
+      <div class="rightList">
+        <ul>
+          <li>FLV</li>
+          <li>MP4</li>
+          <li>M2TS</li>
+          <li>Matroska</li>
+        </ul>
+        <img src="/images/taco-shell.jpg" width="400">
+      </div>
     </article>
 
     <aside class="note">

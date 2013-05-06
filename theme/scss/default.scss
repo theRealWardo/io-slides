@@ -821,6 +821,10 @@ article.smaller {
   opacity: 0;
 }
 
+.auto-fadein .second {
+  @include transition(opacity 0.6s ease-in 2s);
+}
+
 /* Clickable/tappable areas */
 .slide-area {
   z-index: 1000;
@@ -991,7 +995,7 @@ aside.gdbar {
       display: none !important;
     }
   }
-  
+
   slides {
     slide {
       &.backdrop {
@@ -1163,4 +1167,37 @@ img.sharding {
 }
 span.date {
   font-weight:bold;
+}
+
+article.oneline {
+    position: absolute;
+    top: 40%;
+}
+
+article.oneline h3 {
+    font-size: larger;
+}
+
+pre.httpRequest {
+    color: $brand-red;
+}
+
+pre.httpResponse {
+    color: $brand-blue;
+}
+
+.flexbox h2 {
+    font-size: 220%;
+}
+
+article.bigger {
+    font-size: 130%;
+}
+
+article.bigger h3 {
+    font-size: 120%;
+}
+
+em {
+    color: black;
 }

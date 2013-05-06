@@ -285,7 +285,7 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Decoder</li>
       </ul>
 
-      <img class="cache" src="/images/buffer-chunk.gif">
+      <img class="cache" src="images/buffer-chunk.gif">
     </article>
   </slide>
 
@@ -301,7 +301,7 @@ URL: https://code.google.com/p/io-2012-slides
         <li>Decoder</li>
       </ul>
 
-      <img class="cache" src="/images/buffer-cache.gif">
+      <img class="cache" src="images/buffer-cache.gif">
     </article>
   </slide>
 
@@ -317,7 +317,7 @@ URL: https://code.google.com/p/io-2012-slides
         <li class="black">Decoder - Decoded Frames</li>
       </ul>
 
-      <img class="cache" src="/images/buffer-netstream.gif">
+      <img class="cache" src="images/buffer-netstream.gif">
     </article>
   </slide>
 
@@ -341,7 +341,7 @@ URL: https://code.google.com/p/io-2012-slides
           <li>Client side seek indexing</li>
         </ul>
       </div>
-      <img class="seekbar" src="/images/seekbar-buffer.jpg">
+      <img class="seekbar" src="images/seekbar-buffer.jpg">
     </article>
 
     <aside class="note">
@@ -376,7 +376,7 @@ URL: https://code.google.com/p/io-2012-slides
           <li>Client side seek indexing</li>
         </ul>
       </div>
-      <img class="seekbar" src="/images/seekbar-inbuffer.jpg">
+      <img class="seekbar" src="images/seekbar-inbuffer.jpg">
     </article>
 
     <aside class="note">
@@ -411,7 +411,7 @@ URL: https://code.google.com/p/io-2012-slides
           <li>Client side seek indexing</li>
         </ul>
       </div>
-      <img class="seekbar" src="/images/seekbar-unbuffered.jpg">
+      <img class="seekbar" src="images/seekbar-unbuffered.jpg">
     </article>
 
     <aside class="note">
@@ -460,7 +460,7 @@ URL: https://code.google.com/p/io-2012-slides
           <li>AAC</li>
           <li>Vorbus</li>
         </ul>
-        <img src="/images/taco-meat.jpg" width="400">
+        <img src="images/taco-meat.jpg" width="400">
       </div>
       <div class="rightList">
         <ul>
@@ -469,7 +469,7 @@ URL: https://code.google.com/p/io-2012-slides
           <li>M2TS</li>
           <li>Matroska</li>
         </ul>
-        <img src="/images/taco-shell.jpg" width="400">
+        <img src="images/taco-shell.jpg" width="400">
       </div>
     </article>
 
@@ -492,34 +492,26 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
       <p>How do we handle knowing the byte offset A for a time T?</p>
-      <ul class="build">
+      <ul>
         <li>FLV time to byte</li>
         <li>MP4 moov atom</li>
-        <li>FMP4/DASH sidx atom</li>
-        <li>HLS manifests</li>
-        <br/><br/>
-        <li>Build a common interface: (time, byte offset)</li>
-        <li>Data: {time, codec, payload}</li>
+        <li>FMP4 sidx atom</li>
+        <li>DASH/HLS manifests</li>
+      </ul>
+      <ul class="build">
+        <li>Build a common interface:
+          <ul>
+            <li>Container = (time, byte offset)</li>
+            <li>Samples = {codec, payload}</li>
+          </ul>
+        </li>
       </ul>
     </article>
 
     <aside class="note">
       <section>
         <ul>
-          <li>These things are the slices of bread we are talking about.<li>
-        </ul>
-      </section>
-    </aside>
-  </slide>
-
-
-  <slide class="fill nobackground"
-  style="background-image:url(images/rebuffers.gif)">
-
-    <aside class="note">
-      <section>
-        <ul>
-          <li>Rebuffers</li>
+          <li><li>
         </ul>
       </section>
     </aside>
@@ -528,13 +520,180 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
-      <h2>stream switching slide</h2>
+      <h2>Anatomy of a Video</h2>
     </hgroup>
     <article>
-      <ul class="build">
-        <li></li>
-      </ul>
+      <img class="splice" src="images/video.gif">
     </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>simplicity sake, talking about H.264 w/o B-Frames and AAC<li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Adaptive Bitrate Streaming</h2>
+    </hgroup>
+    <article>
+      <img class="splice" src="images/splice-1.gif">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li><li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Adaptive Bitrate Streaming</h2>
+    </hgroup>
+    <article>
+      <img class="splice" src="images/splice-2.gif">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li><li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Adaptive Bitrate Streaming</h2>
+    </hgroup>
+    <article>
+      <img class="splice" src="images/splice-3.gif">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li><li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Problems</h2>
+    </hgroup>
+    <article>
+      <img class="splice" src="images/problems-video.gif">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li><li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Problems</h2>
+    </hgroup>
+    <article>
+      <img class="splice" src="images/problems-video.gif">
+      <img src="images/problems-audio.gif">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li><li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Problems</h2>
+    </hgroup>
+    <article>
+      <img class="splice" src="images/splice-1.gif">
+      <img src="images/just-audio.gif">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li><li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>More Problems</h2>
+    </hgroup>
+    <article>
+      <img src="images/sharding-1.jpg">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>http://www.flickr.com/photos/cdharrison/280252512/</li>
+          <li>http://commons.wikimedia.org/wiki/File%3AServer-multiple.svg<li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>More Problems</h2>
+    </hgroup>
+    <article>
+      <img src="images/sharding-2.jpg">
+    </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>http://www.flickr.com/photos/cdharrison/280252512/</li>
+          <li>http://commons.wikimedia.org/wiki/File%3AServer-multiple.svg<li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+
+  <slide class="fill nobackground"
+      style="background-image:url(images/rebuffers.gif)">
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li>Rebuffers</li>
+        </ul>
+      </section>
+    </aside>
   </slide>
 
 

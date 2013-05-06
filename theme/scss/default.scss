@@ -1151,3 +1151,7 @@ img.seekbar {
 slides > slide.noTransition {
   @include transition(none);
 }
+
+img.splice {
+  padding-top: 50px;
+}

@@ -51,7 +51,8 @@ URL: https://code.google.com/p/io-2012-slides
     <aside class="note">
       <section>
         <ul>
-          <li></li>
+          <li>Today I am going to talk about the internet and the videos and
+          technologly that made so many of these memes possible.</li>
         </ul>
       </section>
     </aside>
@@ -64,8 +65,9 @@ URL: https://code.google.com/p/io-2012-slides
     <aside class="note">
       <section>
         <ul>
-          <li>Here's where everything starts, a machine just like these.</li>
+          <li>We'll talk a little bit about processing these videos, on machines just like these.</li>
           <li>All our video processing happens inside Google Datacenters.</li>
+          <li>This year we made some big changes to how videos are processed.</li>
         </ul>
       </section>
     </aside>
@@ -78,8 +80,10 @@ URL: https://code.google.com/p/io-2012-slides
     <aside class="note">
       <section>
         <ul>
-          <li>Here's what we are really talking about, the data we send over
-          these cables.</li>
+          <li>We'll also talk a bit about their delivery to your computers as flashes of light
+          through a large series to tubes.</li>
+          <li> These are some of the first tubes those videos go through as they
+          leave our Datacenters.</li>
         </ul>
       </section>
     </aside>
@@ -96,7 +100,8 @@ URL: https://code.google.com/p/io-2012-slides
     <aside class="note">
       <section>
         <ul>
-          <li>Here's what we are doing to those tubes these days.</li>
+          <li>In reality, today those tubes are starting to look a lot more like
+          this.</li>
         </ul>
       </section>
     </aside>
@@ -123,7 +128,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Timeline</h2>
     </hgroup>
     <article>
-      <ul class="build">
+      <ul style="line-height:1.5em">
         <li><span class="date">September 24, 2009</span> - Adobe showed us a project called Zeri</li>
         <li><span class="date">Sometime in early 2010</span> - Working Zeri prototype</li>
         <li><span class="date">July 11, 2011</span> - Aaron Colwell shows of v0.1 of Media Source</li>
@@ -138,9 +143,11 @@ URL: https://code.google.com/p/io-2012-slides
     <aside class="note">
       <section>
         <ul>
-          <li>2009 - Zeri - Flash 10.1+ and uses HTTP for transport</li>
-          <li>april 24 2012 - 2 years and 7 months later - worked through more bugs than I can count</li>
-          <li>October - This is real playbacks, not internal / show it to your boss playbacks</li>
+          <li>We're going to talk about something that started nearly four years
+          ago and a project that we are still working hard on every day.</li>
+          <li>In the middle of this timeline here is a 2.5 year feature rollout
+          with more technical intricacies than we have time to talk about.</li>
+          <li>Two projects - Zeri and Media Source. Former in Flash latter HTML5.</li>
         </ul>
       </section>
     </aside>
@@ -595,6 +602,30 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
+      <h2>How to Launch Adaptive Streaming at Scale</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="code">
+write_awesome_code();
+knob_value = 0;
+while (knob_value &lt; 100) {
+  identify_and_fix_problems();
+  turn_knob(1);
+  notice_new_problem();
+  if (really_hurts) {
+    turn_knob(-1);
+  }
+  drink();
+  sleep();
+}
+party();
+      </pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
       <h2>Problems</h2>
     </hgroup>
     <article>
@@ -651,10 +682,10 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
-      <h2>More Problems</h2>
+      <h2>Problems</h2>
     </hgroup>
     <article>
-      <img src="images/sharding-1.jpg">
+      <img class="sharding" src="images/sharding-1.jpg">
     </article>
 
     <aside class="note">
@@ -668,12 +699,12 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
-  <slide>
+  <slide class="noTransition">
     <hgroup>
-      <h2>More Problems</h2>
+      <h2>Problems</h2>
     </hgroup>
     <article>
-      <img src="images/sharding-2.jpg">
+      <img class="sharding" src="images/sharding-2.jpg">
     </article>
 
     <aside class="note">
@@ -687,6 +718,16 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
 
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>HTML5</h2>
+      <h3>A New Oven</h3>
+    </hgroup>
+  </slide>
+
+
+<!--
   <slide class="fill nobackground"
       style="background-image:url(images/rebuffers.gif)">
 
@@ -698,29 +739,24 @@ URL: https://code.google.com/p/io-2012-slides
       </section>
     </aside>
   </slide>
+-->
 
 
   <slide>
     <hgroup>
-      <h2>How to Launch Adaptive Streaming at Scale</h2>
+      <h2>Problems</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="code">
-write_awesome_code();
-knob_value = 0;
-while (knob_value &lt; 100) {
-  identify_and_fix_problems();
-  turn_knob(1);
-  notice_new_problem();
-  if (really_hurts) {
-    turn_knob(-1);
-  }
-  drink();
-  sleep();
-}
-party();
-      </pre>
+      <img src="images/latency.gif">
     </article>
+
+    <aside class="note">
+      <section>
+        <ul>
+          <li><li>
+        </ul>
+      </section>
+    </aside>
   </slide>
 
 

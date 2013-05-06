@@ -1155,3 +1155,12 @@ slides > slide.noTransition {
 img.splice {
   padding-top: 50px;
 }
+img.sharding {
+  position: relative;
+  top: -125px;
+  left: 125px;
+  z-index: -1;
+}
+span.date {
+  font-weight:bold;
+}

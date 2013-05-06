@@ -1152,7 +1152,7 @@ img.seekbar {
   left: 150px;
 }
 
-slides > slide.noTransition {
+slides > slide.noTransition, aside.gdbar.noTransition {
   @include transition(none);
 }
 

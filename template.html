@@ -625,8 +625,7 @@ party();
     </article>
   </slide>
 
-
-  <slide>
+  <slide class="noTransition">
     <hgroup>
       <h2>Problems</h2>
     </hgroup>
@@ -764,21 +763,287 @@ party();
 
   <slide>
     <hgroup>
-      <h2>Slide with Bullets</h2>
+      <h2>HTML5 Becomes Competitive</h2>
     </hgroup>
     <article>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>HTML5 Becomes Competitive</h2>
+    </hgroup>
+    <article class="bigger">
+      <h3>Advantages of the HTML5 Player</h3>
       <ul>
-        <li>Titles are formatted as Open Sans with bold applied and font size is set at 45</li>
-        <li>Title capitalization is title case
-          <ul>
-            <li>Subtitle capitalization is title case</li>
-          </ul>
-        </li>
-        <li>Subtitle capitalization is title case</li>
-        <li>Titles and subtitles should never have a period at the end</li>
+        <li>Improved accessibility</li>
+        <li>Better mobile support</li>
+        <li>Fewer security vulnerabilities</li>
+        <li>Competitive platform ecosystem</li>
+        <li>Open standards process</li>
       </ul>
     </article>
   </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>HTML5 Becomes Competitive</h2>
+    </hgroup>
+    <article class="bigger">
+      <h3>Advantages of the Flash Player</h3>
+      <ul>
+        <li>Better at playing video</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>HTML5 Becomes Competitive</h2>
+    </hgroup>
+    <article class="bigger">
+      <h3>Advantages of the Flash Player</h3>
+      <ul>
+        <li><em>Faster</em> at playing video</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>HTML5 Becomes Competitive</h2>
+    </hgroup>
+    <article>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>HTML5 Becomes Competitive</h2>
+    </hgroup>
+    <article>
+      <h3>Cross-Origin Resource Sharing</h3>
+      <pre data-lang="HTTP Request" class="httpRequest">
+GET /videoplayback HTTP/1.1
+Host: sn---o097nez.c.youtube.com
+Origin: http://www.youtube.com
+...
+      </pre>
+      <pre data-lang="HTTP Response" class="httpResponse">
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: http://www.youtube.com
+Access-Control-Allow-Credentials: True
+...
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vcenter">
+      <h2>Media Source Extensions</h2>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article>
+      <h3>V0.1 Draft Interface</h3>
+      <pre data-lang="Web IDL">
+constructor(in DOMString type)]
+interface MediaSource {
+  readonly attribute unsigned long bytesAvailable;
+
+  bool append(in ArrayBuffer data);
+  void endOfStream();
+  ...
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article>
+    </article>
+  </slide>
+
+  <slide class="segue dark quote nobackground">
+    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Playing videos is hard.
+      </q>
+      <div class="author">
+        Axiom 1 of YouTube Engineering
+      </div>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <article class="flexbox vleft">
+      <h2>Increase quality, reduce cost.</h2>
+    </article>
+  </slide>
+
+  <slide class="segue dark quote nobackground">
+    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Premature optimization is the <br/>
+        root of all evil.
+      </q>
+      <div class="author">
+        C. A. R. Hoare <br/>
+        (probably)
+      </div>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <article class="flexbox vleft">
+      <h2>Adobe Flash targets consistency</h2>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <article class="flexbox vleft">
+      <h2>W3C targets portability</h2>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <article class="flexbox vleft">
+      <h2>.appendBytes isn't portable</h2>
+    </article>
+  </slide>
+
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article>
+      <pre data-lang="JavaScript">
+var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article>
+      <pre data-lang="JavaScript">
+var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
+sb.appendBuffer(mediaBuffer);
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article>
+      <pre data-lang="JavaScript">
+var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
+sb.appendBuffer(mediaBuffer);
+sb.appendBuffer(mediaBuffer2);
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article></article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Application-Level Streaming</h2>
+      <h3>Better for You (and YouTube)</h3>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <article class="flexbox vleft">
+      <h2>Speed</h2>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Application-Level Streaming - Speed</h2>
+    </hgroup>
+    <article class="flexbox vleft">
+    ...
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vleft">
+      <h2>Experiments</h2>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Application-Level Streaming - Experiments</h2>
+    </hgroup>
+    <article class="flexbox vleft">
+    ...
+    </article>
+  </slide>
+
+  <slide>
+    <article class="flexbox vleft">
+      <h2>Tuning for Emerging Markets</h2>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Application-Level Streaming - Emerging Markets</h2>
+    </hgroup>
+    <article class="flexbox vleft">
+    ...
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Application-Level Streaming - Emerging Markets</h2>
+    </hgroup>
+    <article class="flexbox vleft">
+    ...
+    </article>
+  </slide>
+
+  <slide>
+  <article class="flexbox vcenter">
+    <h2>Software has bugs.</h2>
+  </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/connections3-safe.png)">
+  </slide>
+
+  <slide>
+  <hgroup><h2>Application-Level Streaming - Fault Tolerance</h2></hgroup>
+  <article class="flexbox vcenter">
+    <h2>One device, 500 QPS.</h2>
+  </article>
+  </slide>
+
 
 
   <slide>

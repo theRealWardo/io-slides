@@ -884,15 +884,16 @@ interface MediaSource {
     </article>
   </slide>
 
-  <slide class="noTransition">
+  <slide class="segue dark nobackground noTransition">
+    <aside class="gdbar right bottom noTransition"><img src="images/google_developers_icon_128.png"></aside>
     <article class="flexbox vleft">
-      <h2>Increase quality, reduce cost.</h2>
+      <h2 style="font-size: 45px; font-weight: 400;">Increase quality, reduce cost.</h2>
     </article>
   </slide>
 
-  <slide class="segue dark quote nobackground">
-    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
-    <article class="flexbox vleft auto-fadein">
+  <slide class="segue dark quote nobackground noTransition">
+    <aside class="gdbar right bottom noTransition"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft">
       <q>
         Premature optimization is the <br/>
         root of all evil.
@@ -904,7 +905,7 @@ interface MediaSource {
     </article>
   </slide>
 
-  <slide class="noTransition">
+  <slide>
     <article class="flexbox vleft">
       <h2>Adobe Flash targets consistency</h2>
     </article>
@@ -922,6 +923,14 @@ interface MediaSource {
     </article>
   </slide>
 
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="images/pipeline_model.png" class="reflect" style="height: 100%;">
+    </article>
+  </slide>
 
   <slide class="noTransition">
     <hgroup>
@@ -931,6 +940,7 @@ interface MediaSource {
       <pre data-lang="JavaScript">
 var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
       </pre>
+      [timeline]
     </article>
   </slide>
 
@@ -943,6 +953,7 @@ var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
 var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
 sb.appendBuffer(mediaBuffer);
       </pre>
+      [timeline with one slice and a transport]
     </article>
   </slide>
 
@@ -956,6 +967,7 @@ var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
 sb.appendBuffer(mediaBuffer);
 sb.appendBuffer(mediaBuffer2);
       </pre>
+      [timeline with two slices and a transport]
     </article>
   </slide>
 
@@ -964,6 +976,28 @@ sb.appendBuffer(mediaBuffer2);
       <h2>Media Source Extensions</h2>
     </hgroup>
     <article></article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article>[timeline with four grayscale slices, transport at first slice]</article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article>[new slices above starting at third slice, transport control at end of second slice]</article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+    </hgroup>
+    <article>[new slices replaced, grayscale slice retained, arrow showing that
+    source buffer is reading from old slice first]</article>
   </slide>
 
   <slide class="segue dark nobackground">
@@ -985,7 +1019,7 @@ sb.appendBuffer(mediaBuffer2);
       <h2>Application-Level Streaming - Speed</h2>
     </hgroup>
     <article class="flexbox vleft">
-    ...
+    [multi-stage manifest diagram]
     </article>
   </slide>
 
@@ -1000,7 +1034,7 @@ sb.appendBuffer(mediaBuffer2);
       <h2>Application-Level Streaming - Experiments</h2>
     </hgroup>
     <article class="flexbox vleft">
-    ...
+    [scrubbed experiment results]
     </article>
   </slide>
 
@@ -1014,8 +1048,8 @@ sb.appendBuffer(mediaBuffer2);
     <hgroup>
       <h2>Application-Level Streaming - Emerging Markets</h2>
     </hgroup>
-    <article class="flexbox vleft">
-    ...
+    <article class="flexbox vleft" style="position: relative;">
+      <div style="position: absolute; width: 45%; left: 0;">[Buffering]</div>
     </article>
   </slide>
 
@@ -1023,8 +1057,9 @@ sb.appendBuffer(mediaBuffer2);
     <hgroup>
       <h2>Application-Level Streaming - Emerging Markets</h2>
     </hgroup>
-    <article class="flexbox vleft">
-    ...
+    <article class="flexbox vleft" style="position: relative;">
+      <div style="position: absolute; width: 45%; left: 0;">[Buffering]</div>
+      <div style="position: absolute; width: 45%; right: 0;">[144p]</div>
     </article>
   </slide>
 
@@ -1044,7 +1079,45 @@ sb.appendBuffer(mediaBuffer2);
   </article>
   </slide>
 
+  <slide>
+  <article class="flexbox vcenter">
+    <h2>New Features</h2>
+  </article>
+  </slide>
 
+  <slide>
+  <hgroup><h2>Application-Level Streaming</h2></hgroup>
+  <article>
+    <h3>New Features</h3>
+    <ul>
+      <li>Preloading</li>
+      <li>Fast-start</li>
+      <li>Bufferbloat avoidance</li>
+      <li>Global load balancing</li>
+      <li>Ubiquitous live-streaming</li>
+    </ul>
+  </article>
+  </slide>
+
+  <slide>
+  <hgroup><h2>Application-Level Streaming</h2></hgroup>
+  <article class="flexbox vleft bigger">
+    <h3>Flash: Live at 100%</h3>
+    <h3>HTML5: <a href="http://www.youtube.com/html5">www.youtube.com/html5</a></h3>
+    <h3>Mobile, TV, Console: Coming Soon</h3>
+  </article>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <p>Important contact information goes here.</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
 
   <slide>
     <hgroup>

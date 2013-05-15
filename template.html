@@ -770,7 +770,7 @@ party();
     <article>
     </article>
   </slide>
-
+<!--
   <slide class="noTransition">
     <hgroup>
       <h2>HTML5 Becomes Competitive</h2>
@@ -818,8 +818,36 @@ party();
     <article>
     </article>
   </slide>
+-->
 
-  <slide class="noTransition">
+  <slide>
+    <hgroup>
+      <h2>HTML5 Becomes Competitive</h2>
+    </hgroup>
+    <article>
+      <pre data-lang="Crossdomain Request" class="httpRequest">
+GET /crossdomain.xml HTTP/1.1
+Host: <strong>sn---o097nez.c.youtube.com</strong>
+      </pre>
+      <pre data-lang="Crossdomain Response Body" class="httpResponse">
+&lt;cross-domain-policy&gt;
+  &lt;allow-access-from domain="s.ytimg.com" /&gt;
+  &lt;allow-access-from <strong>domain="*.youtube.com"</strong> /&gt;
+&lt;/cross-domain-policy&gt;
+      </pre>
+      <pre data-lang="Media Request" class="httpRequest">
+GET /videoplayback HTTP/1.1
+Host: <strong>sn---o097nez.c.youtube.com</strong>
+...
+      </pre>
+      <pre data-lang="Media Response" class="httpResponse">
+HTTP/1.1 200 OK
+...
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
     <hgroup>
       <h2>HTML5 Becomes Competitive</h2>
     </hgroup>
@@ -827,13 +855,13 @@ party();
       <h3>Cross-Origin Resource Sharing</h3>
       <pre data-lang="HTTP Request" class="httpRequest">
 GET /videoplayback HTTP/1.1
-Host: sn---o097nez.c.youtube.com
-Origin: http://www.youtube.com
+Host: <strong>sn---o097nez.c.youtube.com</strong>
+Origin: <strong>http://www.youtube.com</strong>
 ...
       </pre>
       <pre data-lang="HTTP Response" class="httpResponse">
 HTTP/1.1 200 OK
-Access-Control-Allow-Origin: http://www.youtube.com
+Access-Control-Allow-Origin: <strong>http://www.youtube.com</strong>
 Access-Control-Allow-Credentials: True
 ...
       </pre>
@@ -870,7 +898,9 @@ interface MediaSource {
     <hgroup>
       <h2>Media Source Extensions</h2>
     </hgroup>
-    <article>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 45px; font-weight: 400;">
+      The appendBytes-style model <br/> doesn't work for the web.</h2>
     </article>
   </slide>
 
@@ -886,24 +916,26 @@ interface MediaSource {
     </article>
   </slide>
 
-  <slide class="segue dark nobackground noTransition">
-    <aside class="gdbar right bottom noTransition"><img src="images/google_developers_icon_128.png"></aside>
-    <article class="flexbox vleft">
-      <h2 style="font-size: 45px; font-weight: 400;">Increase quality, reduce cost.</h2>
+  <slide>
+    <article>
+      <h3>Optimization targets for lossy compression</h3>
+      <ul>
+        <li>Compression efficiency</li>
+        <li>Resolution scalability</li>
+        <li>Bitrate scalability</li>
+        <li>End-to-end latency</li>
+        <li>Signal fidelity</li>
+        <li>Perceptual fidelity</li>
+      </ul>
     </article>
   </slide>
 
-  <slide class="segue dark quote nobackground noTransition">
-    <aside class="gdbar right bottom noTransition"><img src="images/google_developers_icon_128.png"></aside>
-    <article class="flexbox vleft">
-      <q>
-        Premature optimization is the <br/>
-        root of all evil.
-      </q>
-      <div class="author">
-        C. A. R. Hoare <br/>
-        (probably)
-      </div>
+  <slide>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 45px; font-weight: 400;">
+        "Improve compression efficiency by 20%, <br/>
+        with no more than triple the decode complexity."
+      </h2>
     </article>
   </slide>
 
@@ -913,19 +945,13 @@ interface MediaSource {
     </article>
   </slide>
 
-  <slide class="noTransition">
+  <slide>
     <article class="flexbox vleft">
-      <h2>W3C targets portability</h2>
+      <h2>W3C standards target interoperability</h2>
     </article>
   </slide>
 
-  <slide class="noTransition">
-    <article class="flexbox vleft">
-      <h2>.appendBytes isn't portable</h2>
-    </article>
-  </slide>
-
-  <slide class="noTransition">
+  <slide>
     <hgroup>
       <h2>Media Source Extensions</h2>
     </hgroup>
@@ -942,7 +968,7 @@ interface MediaSource {
       <pre data-lang="JavaScript">
 var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
       </pre>
-      [timeline]
+      <img src="images/timeline.svg" style="position: absolute; width: 80%; left: 10%; bottom: 5%;" />
     </article>
   </slide>
 
@@ -955,7 +981,7 @@ var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
 var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
 sb.appendBuffer(mediaBuffer);
       </pre>
-      [timeline with one slice and a transport]
+      <img src="images/timeline_1_seg.svg" style="position: absolute; width: 80%; left: 10%; bottom: 5%;" />
     </article>
   </slide>
 
@@ -969,7 +995,7 @@ var sb = mediaSource.addSourceBuffer('video/webm; codecs="vp9"');
 sb.appendBuffer(mediaBuffer);
 sb.appendBuffer(mediaBuffer2);
       </pre>
-      [timeline with two slices and a transport]
+      <img src="images/timeline_2_segs.svg" style="position: absolute; width: 80%; left: 10%; bottom: 5%;" />
     </article>
   </slide>
 
@@ -977,29 +1003,59 @@ sb.appendBuffer(mediaBuffer2);
     <hgroup>
       <h2>Media Source Extensions</h2>
     </hgroup>
-    <article></article>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 45px; font-weight: 400;">Performing an Adaptive Upswitch</h2>
+    </article>
   </slide>
 
   <slide class="noTransition">
     <hgroup>
       <h2>Media Source Extensions</h2>
+      <h3 style="position: absolute;">Performing an Adaptive Upswitch</h3>
     </hgroup>
-    <article>[timeline with four grayscale slices, transport at first slice]</article>
-  </slide>
+    <article class="flexbox vcenter">
+      <h2 style="font-size: 45px; font-weight: 400;">Always show the best video possible.</h2>
+    </article>
+    </slide>
 
   <slide class="noTransition">
     <hgroup>
       <h2>Media Source Extensions</h2>
-    </hgroup>
-    <article>[new slices above starting at third slice, transport control at end of second slice]</article>
+      <h3>Performing an Adaptive Upswitch</h3>
+      </hgroup>
+      <article>
+      <img src="images/just_240p.svg" style="position: absolute; width: 80%; left: 10%; bottom: 5%;" />
+      </article>
   </slide>
 
   <slide class="noTransition">
     <hgroup>
-      <h2>Media Source Extensions</h2>
+    <h2>Media Source Extensions</h2>
+    <h3>Performing an Adaptive Upswitch</h3>
     </hgroup>
-    <article>[new slices replaced, grayscale slice retained, arrow showing that
-    source buffer is reading from old slice first]</article>
+      <article>
+      <img src="images/timestamped.svg" style="position: absolute; width: 80%; left: 10%; bottom: 5%;" />
+    </article>
+  </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+    <h2>Media Source Extensions</h2>
+    <h3>Performing an Adaptive Upswitch</h3>
+    </hgroup>
+      <article>
+      <img src="images/described.svg" style="position: absolute; width: 80%; left: 10%; bottom: 5%;" />
+    </article>
+    </slide>
+
+  <slide class="noTransition">
+    <hgroup>
+      <h2>Media Source Extensions</h2>
+      <h3>Performing an Adaptive Upswitch</h3>
+      </hgroup>
+      <article>
+      <img src="images/replaced.svg" style="position: absolute; width: 80%; left: 10%; bottom: 5%;" />
+    </article>
   </slide>
 
   <slide class="segue dark nobackground">
@@ -1018,10 +1074,21 @@ sb.appendBuffer(mediaBuffer2);
 
   <slide>
     <hgroup>
-      <h2>Application-Level Streaming - Speed</h2>
+    <h2>Application-Level Streaming</h2>
+    <h3>Speed</h3>
     </hgroup>
     <article class="flexbox vleft">
-    [multi-stage manifest diagram]
+    [variant playlist]
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+    <h2>Application-Level Streaming</h2>
+    <h3>Speed</h3>
+    </hgroup>
+    <article class="flexbox vleft">
+    [afmt map]
     </article>
   </slide>
 
@@ -1075,13 +1142,6 @@ sb.appendBuffer(mediaBuffer2);
   </slide>
 
   <slide>
-  <hgroup><h2>Application-Level Streaming - Fault Tolerance</h2></hgroup>
-  <article class="flexbox vcenter">
-    <h2>One device, 500 requests per second.</h2>
-  </article>
-  </slide>
-
-  <slide>
   <article class="flexbox vcenter">
     <h2>New Features</h2>
   </article>
@@ -1120,7 +1180,15 @@ sb.appendBuffer(mediaBuffer2);
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->
     </p>
-  </slide>
+    </slide>
+
+      <slide class="logoslide dark nobackground">
+        <article class="flexbox vcenter">
+          <span><img src="images/google_developers_logo_white.png"></span>
+        </article>
+      </slide>
+
+      <slide class="backdrop"></slide>
 
 </slides>
 

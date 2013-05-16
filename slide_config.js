@@ -25,7 +25,7 @@ var SLIDE_CONFIG = {
     www: 'http://www.mwdesigns.com',
   }, {
     name: 'Steven Robertson',
-    company: 'Video Delivery Engineer, YouTube',
+    company: 'Spec Wrangler, YouTube',
     gplus: 'http://plus.google.com/1234567890',
     twitter: '@_srobertson',
     www: 'http://strobe.cc'

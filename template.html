@@ -25,8 +25,6 @@ URL: https://code.google.com/p/io-2012-slides
 <body style="opacity: 0">
 
 <slides class="layout-widescreen">
-
-
   <slide class="logoslide nobackground">
     <article class="flexbox vcenter">
       <span><img src="images/google_developers_logo.png"></span>
@@ -110,7 +108,7 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide class="ytspinner-slide">
     <article>
-      <div></div>
+      <div class="spinner"></div>
     </article>
 
     <aside class="note">
@@ -827,23 +825,19 @@ party();
     <article>
       <pre data-lang="Crossdomain Request" class="httpRequest">
 GET /crossdomain.xml HTTP/1.1
-Host: <strong>sn---o097nez.c.youtube.com</strong>
-      </pre>
+Host: <strong>sn---o097nez.c.youtube.com</strong></pre>
       <pre data-lang="Crossdomain Response Body" class="httpResponse">
 &lt;cross-domain-policy&gt;
   &lt;allow-access-from domain="s.ytimg.com" /&gt;
   &lt;allow-access-from <strong>domain="*.youtube.com"</strong> /&gt;
-&lt;/cross-domain-policy&gt;
-      </pre>
+&lt;/cross-domain-policy&gt;</pre>
       <pre data-lang="Media Request" class="httpRequest">
 GET /videoplayback HTTP/1.1
 Host: <strong>sn---o097nez.c.youtube.com</strong>
-...
-      </pre>
+...</pre>
       <pre data-lang="Media Response" class="httpResponse">
 HTTP/1.1 200 OK
-...
-      </pre>
+...</pre>
     </article>
   </slide>
 
@@ -894,13 +888,12 @@ interface MediaSource {
     </article>
   </slide>
 
-  <slide class="noTransition">
+  <slide>
     <hgroup>
       <h2>Media Source Extensions</h2>
     </hgroup>
     <article class="flexbox vcenter">
-      <h2 style="font-size: 45px; font-weight: 400;">
-      The appendBytes-style model <br/> doesn't work for the web.</h2>
+    <div class="bigtext">The appendBytes-style model <br/> doesn't work for the web.</div>
     </article>
   </slide>
 
@@ -932,10 +925,10 @@ interface MediaSource {
 
   <slide>
     <article class="flexbox vcenter">
-      <h2 style="font-size: 45px; font-weight: 400;">
+      <div class="bigtext">
         "Improve compression efficiency by 20%, <br/>
         with no more than triple the decode complexity."
-      </h2>
+      </div>
     </article>
   </slide>
 
@@ -1004,7 +997,7 @@ sb.appendBuffer(mediaBuffer2);
       <h2>Media Source Extensions</h2>
     </hgroup>
     <article class="flexbox vcenter">
-      <h2 style="font-size: 45px; font-weight: 400;">Performing an Adaptive Upswitch</h2>
+      <div class="bigtext">Performing an Adaptive Upswitch</div>
     </article>
   </slide>
 
@@ -1014,7 +1007,7 @@ sb.appendBuffer(mediaBuffer2);
       <h3 style="position: absolute;">Performing an Adaptive Upswitch</h3>
     </hgroup>
     <article class="flexbox vcenter">
-      <h2 style="font-size: 45px; font-weight: 400;">Always show the best video possible.</h2>
+      <div class="bigtext">Always show the best video possible.</div>
     </article>
     </slide>
 
@@ -1062,7 +1055,7 @@ sb.appendBuffer(mediaBuffer2);
     <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
     <hgroup class="auto-fadein">
       <h2>Application-Level Streaming</h2>
-      <h3>Better for You (and YouTube)</h3>
+      <h3>Sliced Bread is Good for You</h3>
     </hgroup>
   </slide>
 
@@ -1077,8 +1070,11 @@ sb.appendBuffer(mediaBuffer2);
     <h2>Application-Level Streaming</h2>
     <h3>Speed</h3>
     </hgroup>
-    <article class="flexbox vleft">
-    [variant playlist]
+    <article>
+      <pre data-lang="/watch page configuration">
+
+itag=hls&amp;url=http%3A%2F%2Fwww.youtube.com%2Fapi%3Fmanifest%3Fhls%3F...,
+      </pre>
     </article>
   </slide>
 
@@ -1087,8 +1083,56 @@ sb.appendBuffer(mediaBuffer2);
     <h2>Application-Level Streaming</h2>
     <h3>Speed</h3>
     </hgroup>
-    <article class="flexbox vleft">
-    [afmt map]
+    <article>
+      <pre data-lang="HLS variant manifest">
+
+#EXTM3U
+#EXT-X-STREAM-INF:BANDWIDTH=440972,CODECS="avc1.4d0015,mp4a.40.2",RESOLUTION=426x240
+http://www.youtube.com/api/manifest/hls/id/d54e47c03ff31195/itag/92/.../index.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=796819,CODECS="avc1.4d001e,mp4a.40.2",RESOLUTION=640x360
+...
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+    <h2>Application-Level Streaming</h2>
+    <h3>Speed</h3>
+    </hgroup>
+    <article>
+      <pre data-lang="HLS video manifest">
+
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXT-X-TARGETDURATION:7
+#EXTINF:5.000000,
+http://redirector.c.youtube.com/videoplayback/id/d54e47c03ff31195/itag/92/\
+source/youtube/range/0-104903/...
+<strong>...1 megabyte of URLs later...</strong>
+#EXTINF:4.367000,
+http://redirector.c.youtube.com/videoplayback/id/d54e47c03ff31195/itag/92/\
+source/youtube/range/328543348-328739807/...
+#EXT-X-ENDLIST
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+    <h2>Application-Level Streaming</h2>
+    <h3>Speed</h3>
+    </hgroup>
+    <article>
+    <pre data-lang="/watch page configuration">
+
+init=0-709&amp;index=710-1353&amp;size=1920x1080&amp;
+bitrate=4252884&amp;itag=137&amp;
+url=http%3A%2F%2Fr5---sn-o097zne7.c.youtube.com%2Fvideoplayback%3F...,
+init=0-213&amp;index=94631291-94632392&amp;size=1920x1080&amp;
+bitrate=5058792&amp;itag=248&amp;url=...
+</pre>
     </article>
   </slide>
 
@@ -1100,40 +1144,43 @@ sb.appendBuffer(mediaBuffer2);
 
   <slide>
     <hgroup>
-      <h2>Application-Level Streaming - Experiments</h2>
+    <h2>Application-Level Streaming</h2>
+    <h3 style="position: absolute;">Experiments</h3>
     </hgroup>
-    <article class="flexbox vleft">
-    [scrubbed experiment results]
+    <article class="flexbox vcenter">
+    <div class="bigtext">Hundreds of experiments.<br/>Billions of playbacks.</div>
     </article>
   </slide>
 
   <slide>
     <article class="flexbox vleft">
-      <h2>Tuning for Emerging Markets</h2>
+      <h2>Regional Preference</h2>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Application-Level Streaming - Emerging Markets</h2>
+    <h2>Application-Level Streaming</h2>
+    <h3>Regional Preference</h3>
     </hgroup>
-    <article class="flexbox vleft" style="position: relative;">
-      <div style="position: absolute; width: 45%; left: 0;">[Buffering]</div>
+    <article style="background-image: url(images/scrot-1080p.png); background-repeat: no-repeat; background-size: auto 90%; background-position: 50% 0%; height: 80%; position: relative;">
+    <div style="margin: auto; position: relative; top: 35%; height: 40px; width: 40px; border-radius: 10px; background-color: rgba(0, 0, 0, 0.7);">
+      <div class="spinner" style="margin: auto; position: relative; top: 5px;"></div>
+    </div>
     </article>
-  </slide>
+    </slide>
 
   <slide>
     <hgroup>
-      <h2>Application-Level Streaming - Emerging Markets</h2>
+    <h2>Application-Level Streaming</h2>
+    <h3>Regional Preference</h3>
     </hgroup>
-    <article class="flexbox vleft" style="position: relative;">
-      <div style="position: absolute; width: 45%; left: 0;">[Buffering]</div>
-      <div style="position: absolute; width: 45%; right: 0;">[144p]</div>
+    <article style="background-image: url(images/scrot.png); background-repeat: no-repeat; background-size: auto 90%; background-position: 50% 0%; height: 80%; position: relative;">
     </article>
   </slide>
 
   <slide>
-  <article class="flexbox vcenter">
+  <article class="flexbox vleft">
     <h2>Software has bugs.</h2>
   </article>
   </slide>
@@ -1170,12 +1217,11 @@ sb.appendBuffer(mediaBuffer2);
   </article>
   </slide>
 
-
   <slide class="thank-you-slide segue nobackground">
     <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
-      <p>http://alinkto.com/theslides</p>
+      <p>http://TODO: PUT SOMETHING HERE.com/</p>
     </article>
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->

@@ -18,6 +18,7 @@ URL: https://code.google.com/p/io-2012-slides
   <!--<meta name="viewport" content="initial-scale=0.4">-->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/io2013.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
   <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
@@ -952,13 +953,13 @@ interface MediaSource {
 
   <slide>
     <article class="flexbox vleft">
-      <h2>Adobe Flash targets consistency</h2>
+      <div class="bigtext">Adobe Flash targets consistency.</div>
     </article>
   </slide>
 
   <slide>
     <article class="flexbox vleft">
-      <h2>W3C standards target interoperability</h2>
+      <div class="bigtext">W3C standards target interoperability.</div>
     </article>
   </slide>
 
@@ -971,7 +972,7 @@ interface MediaSource {
     </article>
   </slide>
 
-  <slide class="noTransition">
+  <slide>
     <hgroup>
       <h2>Media Source Extensions</h2>
     </hgroup>
@@ -1089,68 +1090,7 @@ sb.appendBuffer(mediaBuffer2);
     <h3>Speed</h3>
     </hgroup>
     <article>
-      <pre data-lang="/watch page configuration">
-
-itag=hls&amp;url=http%3A%2F%2Fwww.youtube.com%2Fapi%3Fmanifest%3Fhls%3F...,
-      </pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-    <h2>Application-Level Streaming</h2>
-    <h3>Speed</h3>
-    </hgroup>
-    <article>
-      <pre data-lang="HLS variant manifest">
-
-#EXTM3U
-#EXT-X-STREAM-INF:BANDWIDTH=440972,CODECS="avc1.4d0015,mp4a.40.2",RESOLUTION=426x240
-http://www.youtube.com/api/manifest/hls/id/d54e47c03ff31195/itag/92/.../index.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=796819,CODECS="avc1.4d001e,mp4a.40.2",RESOLUTION=640x360
-...
-      </pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-    <h2>Application-Level Streaming</h2>
-    <h3>Speed</h3>
-    </hgroup>
-    <article>
-      <pre data-lang="HLS video manifest">
-
-#EXTM3U
-#EXT-X-VERSION:3
-#EXT-X-PLAYLIST-TYPE:VOD
-#EXT-X-TARGETDURATION:7
-#EXTINF:5.000000,
-http://redirector.c.youtube.com/videoplayback/id/d54e47c03ff31195/itag/92/\
-source/youtube/range/0-104903/...
-<strong>...1 megabyte of URLs later...</strong>
-#EXTINF:4.367000,
-http://redirector.c.youtube.com/videoplayback/id/d54e47c03ff31195/itag/92/\
-source/youtube/range/328543348-328739807/...
-#EXT-X-ENDLIST
-      </pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-    <h2>Application-Level Streaming</h2>
-    <h3>Speed</h3>
-    </hgroup>
-    <article>
-    <pre data-lang="/watch page configuration">
-
-init=0-709&amp;index=710-1353&amp;size=1920x1080&amp;
-bitrate=4252884&amp;itag=137&amp;
-url=http%3A%2F%2Fr5---sn-o097zne7.c.youtube.com%2Fvideoplayback%3F...,
-init=0-213&amp;index=94631291-94632392&amp;size=1920x1080&amp;
-bitrate=5058792&amp;itag=248&amp;url=...
-</pre>
+      <img src="images/hls_alt.svg" style="position: absolute; top: 15%; width: 80%; left: 10%;" />
     </article>
   </slide>
 
@@ -1165,7 +1105,7 @@ bitrate=5058792&amp;itag=248&amp;url=...
     <h2>Application-Level Streaming</h2>
     <h3 style="position: absolute;">Experiments</h3>
     </hgroup>
-    <article class="flexbox vcenter">
+    <article class="flexbox vleft">
     <div class="bigtext">Hundreds of experiments.<br/>Billions of playbacks.</div>
     </article>
   </slide>
@@ -1203,11 +1143,11 @@ bitrate=5058792&amp;itag=248&amp;url=...
   </article>
   </slide>
 
-  <slide class="fill nobackground" style="background-image: url(images/connections3-safe.png)">
+  <slide class="fill nobackground" style="background-image: url(images/smoothed.png); background-size: 100% auto; background-position: 0% 50%;">
   </slide>
 
   <slide>
-  <article class="flexbox vcenter">
+  <article class="flexbox vleft">
     <h2>New Features</h2>
   </article>
   </slide>
@@ -1238,8 +1178,7 @@ bitrate=5058792&amp;itag=248&amp;url=...
   <slide class="thank-you-slide segue nobackground">
     <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
     <article class="flexbox vleft auto-fadein">
-      <h2>&lt;Thank You!&gt;</h2>
-      <p>http://TODO: PUT SOMETHING HERE.com/</p>
+      <h2>Thanks For Watching!</h2>
     </article>
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->

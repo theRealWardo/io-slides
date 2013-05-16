@@ -3,7 +3,6 @@ var SLIDE_CONFIG = {
   settings: {
     title: 'Adaptive Streaming<br/>for You and YouTube',
     subtitle: 'Improving quality of experience at scale',
-    eventTitle: 'Google I/O 2013',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
@@ -25,7 +24,7 @@ var SLIDE_CONFIG = {
     www: 'http://www.mwdesigns.com',
   }, {
     name: 'Steven Robertson',
-    company: 'Spec Wrangler, YouTube',
+    company: 'Engineer and Spec Wrangler, YouTube',
     gplus: 'http://plus.google.com/1234567890',
     twitter: '@_srobertson',
     www: 'http://strobe.cc'

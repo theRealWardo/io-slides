@@ -19,15 +19,9 @@ var SLIDE_CONFIG = {
   presenters: [{
     name: 'Matt Ward',
     company: 'Video Playback Engineer, YouTube',
-    gplus: 'http://plus.google.com/1234567890',
+    gplus: 'https://plus.google.com/113278151049455509906',
     twitter: '@theRealWardo',
     www: 'http://www.mwdesigns.com',
-  }, {
-    name: 'Steven Robertson',
-    company: 'Engineer and Spec Wrangler, YouTube',
-    gplus: 'http://plus.google.com/1234567890',
-    twitter: '@_srobertson',
-    www: 'http://strobe.cc'
   }]
 };
 
